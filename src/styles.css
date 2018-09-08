@@ -264,7 +264,7 @@ img {
         margin: 0;
         padding: 0;
         text-align: center;
-        width: 33%;
+        width: 33.3333%;
     }
     .menu-item a {
         color: inherit;
@@ -284,7 +284,8 @@ img {
         width: 100%;
     }
     .menu-item a:hover {
-        background: tomato;
+        background: #778899;
+        color: #efefef;
     }
     /* Footer */
     footer {
