@@ -10,11 +10,11 @@ import { PageProjectsComponent } from './page-projects/page-projects.component';
 import { SiteNavigationComponent } from './site-navigation/site-navigation.component';
 
 const appRoutes: Routes = [
-  { path: 'home', component: PageHomeComponent},
+  { path: '', component: PageHomeComponent},
   { path: 'skills', component: PageSkillsComponent},
   { path: 'projects', component: PageProjectsComponent},
   { path: '',
-    redirectTo: '/home',
+    redirectTo: '/',
     pathMatch: 'full'
   }
   //{ path: '**', component: PageNotFoundComponent }
