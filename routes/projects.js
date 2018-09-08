@@ -11,4 +11,7 @@ var project_controller = require('../controllers/projectController');
  *    DELETE: Not used
  */
 
- router.get('/api/projects', project_controller.projects_get);
+ router.get('/', project_controller.projects_get);
+
+
+ module.exports = router;

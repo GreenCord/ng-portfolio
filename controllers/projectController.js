@@ -5,5 +5,6 @@ var async = require('async');
 
 // GET
 exports.projects_get = (req, res) =>{
-  res.json({"test": "success"});
+  console.log('/api/projects GET');
+  res.send('SUCCESS');
 };

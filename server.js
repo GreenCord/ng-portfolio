@@ -6,6 +6,9 @@ var ObjectID = mongodb.ObjectID;
 // Add collection for DB here. Currently there is none. e.g.
 // var MYCOLLECTIONNAME_COLLECTION = 'mycollectionname';
 
+// Route Imports
+var projects = require('./routes/projects');
+
 var app = express();
 app.use(bodyParser.json());
 
@@ -39,9 +42,12 @@ function handleError(res, reason, message, code) {
   res.status(code || 500).json({"error": message});
 }
 
-// Route Imports
-var projects = require('./routes/projects');
+
 
 // API Endpoints
 app.use('/api/projects', projects);
+// app.use('/api/projects', (req,res) => {
+//   res.send('/api/projects GET: SUCCESS');
+// });
 
+module.exports = app;
