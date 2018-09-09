@@ -1,7 +1,11 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var mongodb = require('mongodb');
-var ObjectID = mongodb.ObjectID;
+const express = require('express');
+const path = require('path');
+const http = require('http');
+const bodyParser = require('body-parser');
+const mongodb = require('mongodb');
+const ObjectID = mongodb.ObjectID;
+
+require('dotenv').config();
 
 // Add collection for DB here. Currently there is none. e.g.
 // var MYCOLLECTIONNAME_COLLECTION = 'mycollectionname';
@@ -43,15 +47,17 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI || "mongodb://localhost:2701
 // Generic error handler used by all endpoints.
 function handleError(res, reason, message, code) {
   console.log('ERROR: ' + reason);
-  res.status(code || 500).json({"error": message});
+  res.status(code || 500).json({ "error": message });
 }
 
-
+app.use(express.static(path.join(__dirname, 'dist')));
 
 // API Endpoints
 app.use('/api/projects', projects);
-// app.use('/api/projects', (req,res) => {
-//   res.send('/api/projects GET: SUCCESS');
-// });
+
+// Catch other routes and pass to Angular
+app.all('*', (req, res) => {
+  res.status(200).sendFile(path.join(__dirname + '/dist/index.html'));
+})
 
 module.exports = app;

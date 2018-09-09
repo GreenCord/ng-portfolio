@@ -60,11 +60,11 @@ img {
 
 @media screen {
     /* Mobile First */
-    html, body {
+    html, body, .flexme {
         font: 100%/1.6125 'Noto Sans', Corbel, 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
         height: 100%;
     }
-    body {
+    body, .flexme {
         background: #e4f4ff;
         color: #0d0f12;
         display: flex;

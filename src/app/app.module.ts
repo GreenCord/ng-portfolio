@@ -8,34 +8,44 @@ import { PageHomeComponent } from './page-home/page-home.component';
 import { PageSkillsComponent } from './page-skills/page-skills.component';
 import { PageProjectsComponent } from './page-projects/page-projects.component';
 import { SiteNavigationComponent } from './site-navigation/site-navigation.component';
+import { SitePartialNaviconsComponent } from './site-partial-navicons/site-partial-navicons.component';
+import { PageNotFoundComponent } from './page-notfound/page-notfound.component';
 
 const appRoutes: Routes = [
-  { path: '', component: PageHomeComponent},
-  { path: 'skills', component: PageSkillsComponent},
-  { path: 'projects', component: PageProjectsComponent},
-  { path: '',
+  { path: '', component: PageHomeComponent },
+  { path: 'skills', component: PageSkillsComponent },
+  { path: 'skill', redirectTo: '/skills', pathMatch: 'full'},
+  { path: 'projects', component: PageProjectsComponent },
+  { path: 'project', redirectTo: '/projects', pathMatch: 'full'},
+  { path: '404', component: PageNotFoundComponent },
+  {
+    path: '',
     redirectTo: '/',
     pathMatch: 'full'
-  }
-  //{ path: '**', component: PageNotFoundComponent }
+  },
+  { path: '**', redirectTo: '/404' }
+
 ];
 
 @NgModule({
-   declarations: [
-      AppComponent,
-      PageHomeComponent,
-      PageSkillsComponent,
-      PageProjectsComponent,
-      SiteNavigationComponent
-   ],
-   imports: [
-    RouterModule.forRoot(appRoutes,{ enableTracing: true }),
+  declarations: [
+    AppComponent,
+    PageHomeComponent,
+    PageSkillsComponent,
+    PageProjectsComponent,
+    SiteNavigationComponent,
+    SitePartialNaviconsComponent,
+    PageNotFoundComponent
+  ],
+  imports: [
+    RouterModule.forRoot(appRoutes, { enableTracing: true }),
     BrowserModule,
     HttpModule
   ],
-   providers: [],
-   bootstrap: [
-      AppComponent
-   ]
+  providers: [],
+  bootstrap: [
+    AppComponent
+  ]
 })
+
 export class AppModule { }
