@@ -1,5 +1,155 @@
-<div>
-  page-projects works!
+<div class="grid-container-fluid hero-bg-reverse hero-projects">
+  <div class="grid-container">
+    <div class="hero">
+      <h1 class="buffer-top-4x">Projects</h1>
+    </div>
+  </div>
 </div>
+<div class="grid-container-fluid">
+  <div class="grid-container">
+    <div class="projects">
+      <h2>Cloud Test</h2>
+      <div class="project-grid">
+        <div *ngFor="let project of allProjects" class="project-item">
+          <a href="#" alt="">
+            <img src="{{ project.project_header_image.assets[0].url }}" alt="{{ project.project_header_image.assets[0].description }}" />
+            <h3>{{ project.project_name.text }}</h3>
+          </a>
+          <span [innerHtml]="project.short_intro.value"></span>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="grid-container-fluid">
+    <div class="grid-container">
+      <div class="projects">
+        <h2 id="work">Work Projects</h2>
+        <div class="project-grid">
+          <div class="project-item">
+            <a href="workproject-training.html" alt="Training Department Web Project">
+              <img src="./assets/img/workProject_training.jpg" alt="Screenshot of the Training Department Website" />
+              <h3>Training Department Website</h3>
+            </a>
+            <p>This project aimed to redevelop the training department's section of the website to provide more visibility to training classes and an opportunity to ramp up into content marketing.</p>
+            <p class="tech-icons"> 
+              <i class="fab fa-html5" title="HTML 5"></i>
+              <i class="fab fa-css3" title="CSS 3"></i>
+              <i class="fab fa-js-square" title="JavaScript"></i>
+            </p>
+          </div>
+          <div class="project-item">
+            <a href="workproject-pmxi.html" alt="PaintManager XI Platform Web Project">
+              <img src="./assets/img/workProject_pmxi.jpg" alt="Screenshot of the PaintManager XI platform website" />
+              <h3>PaintManager<sup>&reg;</sup> XI Website</h3>
+            </a>
+            <p>Given a budget of $0 and a super-fast deadline, this project was put together to support a closed launch of the company's next generation color matching platform in time for the company sales meeting.</p>
+            <p class="tech-icons"> 
+              <i class="fab fa-html5" title="HTML 5"></i>
+              <i class="fab fa-css3" title="CSS 3"></i>
+              <i class="fab fa-js-square" title="JavaScript"></i>
+            </p>
+          </div>
+          <div class="project-item">
+            <a href="workproject-assetmgmt.html" alt="Refinish Brand Asset Management">
+              <img src="./assets/img/workProject_assetmgmt.jpg" alt="Screenshot of the Refinish Brand Assets website" />
+              <h3>Asset Management Website</h3>
+            </a>
+            <p>Developed to provide customers easy access to marketing materials, images, and on-brand assets to support their sales and marketing needs.</p>
+          </div>
+        </div>
+        
+        <h2 id="personal">Personal Projects</h2>
+        <div class="project-grid">
+          <div class="project-item">
+            <a href="temp.html" alt="Temp">
+              <img src="./assets/img/personalProject_oregon.jpg" alt="Screenshot of Oregon Adventure web game" />
+              <h3>Oregon Adventure</h3>
+            </a>
+            <p>A hangman game developed using only JavaScript.</p>
+          </div>
+          <div class="project-item">
+            <a href="temp.html" alt="Temp">
+              <img src="./assets/img/personalProject_crucible.jpg" alt="Crucible web game character select screen" />
+              <h3>Crucible</h3>
+            </a>
+            <p>A basic game developed using jQuery.</p>
+          </div>
+          <div class="project-item">
+            <a href="temp.html" alt="Temp">
+              <img src="./assets/img/personalProject_quiz.jpg" alt="Screenshot of the quiz" />
+              <h3>Christmas Quiz</h3>
+            </a>
+            <p>A timed quiz developed using JavaScript and jQuery.</p>
+          </div>
+          <div class="project-item">
+            <a href="temp.html" alt="Temp">
+              <img src="./assets/img/personalProject_giftastic.jpg" alt="Screenshot of Giftastic search results" />
+              <h3>Giftastic Search</h3>
+            </a>
+            <p>A GIF search powered by Giphy API, with infinite scroll using AJAX.</p>
+          </div>
+          <div class="project-item">
+            <a href="temp.html" alt="Temp">
+              <img src="./assets/img/personalProject_mpgame.jpg" alt="Screenshot of the game" />
+              <h3>Multiplayer Game</h3>
+            </a>
+            <p>A basic rock, paper, scissors game using Firebase to host players.</p>
+          </div>
+          <div class="project-item">
+            <a href="temp.html" alt="Temp">
+              <img src="./assets/img/personalProject_imageslap.jpg" alt="Screenshot of ImageSlap" />
+              <h3>ImageSlap</h3>
+            </a>
+            <p>Developed using Pixabay API, Cloudinary, and Firebase to create images with text.</p>
+          </div>
+          <div class="project-item">
+            <a href="temp.html" alt="Temp">
+              <img src="./assets/img/personalProject_liri.jpg" alt="Screenshot of the CLI" />
+              <h3>Node.js CLI API Mashup</h3>
+            </a>
+            <p>Developed using Node.js, this app handles user input to perform various API calls.</p>
+          </div>
+          <div class="project-item">
+            <a href="temp.html" alt="Temp">
+              <img src="./assets/img/personalProject_hangmanCLI.jpg" alt="Screenshot of the CLI" />
+              <h3>Node.js CLI Hangman Game</h3>
+            </a>
+            <p>Developed using Node.js using constructors, allows users to play Hangman through a command line interface.</p>
+          </div>
+          <div class="project-item">
+            <a href="temp.html" alt="Temp">
+              <img src="./assets/img/personalProject_sqlcli.jpg" alt="Screenshot of the CLI" />
+              <h3>Bamazon Fresh</h3>
+            </a>
+            <p>A Node.js CLI application that works with MySQL database tables to simulate shopping in an online grocery store.</p>
+          </div>
+          <div class="project-item">
+            <a href="temp.html" alt="Temp">
+              <img src="https://placehold.it/740x320" />
+              <h3>Friend Finder Node/Express</h3>
+            </a>
+            <p>A Node.js/Express application deployed on Heroku that uses a basic API to compare user input to API data to suggest a friend match.</p>
+          </div>
+          <div class="project-item">
+            <a href="temp.html" alt="Temp">
+              <img src="https://placehold.it/740x320" />
+              <h3>Burger Bistro MVC Express</h3>
+            </a>
+            <p>A Node.js/Express app using an MVC pattern on Heroku that uses a MySQL database to track user burger orders.</p>
+          </div>
+          <div class="project-item">
+            <a href="temp.html" alt="Temp">
+              <img src="https://placehold.it/740x320" />
+              <h3>Base of Clubs Website</h3>
+            </a>
+            <p>A project created using React, Node.js, and Express using a NoSQL database.</p>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
 
 <site-partial-navicons></site-partial-navicons>

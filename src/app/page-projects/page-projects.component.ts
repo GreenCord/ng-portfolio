@@ -1,15 +1,74 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  CloudError,
+  ContentItem,
+  ContentType,
+  DeliveryClient,
+  SortOrder,
+  TaxonomyGroup
+} from 'kentico-cloud-delivery';
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
+
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+
+import { Project } from '../models/project.class';
 
 @Component({
-  selector: 'app-page-projects',
+  selector: 'page-projects',
   templateUrl: './page-projects.component.html',
   styleUrls: ['./page-projects.component.css']
 })
-export class PageProjectsComponent implements OnInit {
+export class PageProjectsComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+  protected ngUnsubscribe: Subject<void> = new Subject<void>();
 
-  ngOnInit() {
+  private readonly projectType = 'projects';
+
+  public readonly title = 'My Projects';
+
+  public error?: string;
+
+  public allProjects?: Project[];
+
+  constructor(private deliveryClient: DeliveryClient) { }
+
+  ngOnInit(): void {
+    this.loadData();
+  }
+
+  ngOnDestroy(): void {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
+  }
+
+  loadData(): void {
+    this.deliveryClient
+      .items<Project>()
+      .orderParameter('elements.sort_order', SortOrder.asc)
+      .getObservable()
+      .pipe(
+        takeUntil(this.ngUnsubscribe)
+      )
+      .subscribe(
+        response => {
+          console.log(response);
+          this.allProjects = response.items;
+        },
+        error => this.handleCloudError(error)
+      );
+
+  }
+
+  private handleCloudError(error: CloudError | any): void {
+    if (error instanceof CloudError) {
+      this.error = `Kentico Cloud Error occurred with message: '${
+        error.message
+      }' for request with id = '${error.requestId}'`;
+    } else {
+      this.error = 'Unknown error occurred';
+    }
   }
 
 }

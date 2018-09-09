@@ -11,6 +11,8 @@ import { SiteNavigationComponent } from './site-navigation/site-navigation.compo
 import { SitePartialNaviconsComponent } from './site-partial-navicons/site-partial-navicons.component';
 import { PageNotFoundComponent } from './page-notfound/page-notfound.component';
 
+import { DeliveryClientProvider } from './kc/delivery-client.provider';
+
 const appRoutes: Routes = [
   { path: '', component: PageHomeComponent },
   { path: 'skills', component: PageSkillsComponent },
@@ -42,7 +44,7 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpModule
   ],
-  providers: [],
+  providers: [DeliveryClientProvider],
   bootstrap: [
     AppComponent
   ]
