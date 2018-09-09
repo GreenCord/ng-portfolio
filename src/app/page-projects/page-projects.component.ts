@@ -20,6 +20,7 @@ import { Project } from '../models/project.class';
   templateUrl: './page-projects.component.html',
   styleUrls: ['./page-projects.component.css']
 })
+
 export class PageProjectsComponent implements OnInit, OnDestroy {
 
   protected ngUnsubscribe: Subject<void> = new Subject<void>();
@@ -33,6 +34,12 @@ export class PageProjectsComponent implements OnInit, OnDestroy {
   public allProjects?: Project[];
   public workProjects?: Project[];
   public personalProjects?: Project[];
+  public selectedProject: Project;
+
+  onSelect(project: Project): void {
+    // console.log("incoming project:",project);
+    this.selectedProject = project;
+  }
 
   constructor(private deliveryClient: DeliveryClient) { }
 
@@ -46,23 +53,9 @@ export class PageProjectsComponent implements OnInit, OnDestroy {
   }
 
   loadData(): void {
-    // this.deliveryClient
-    //   .items<Project>()
-    //   .orderParameter('elements.sort_order', SortOrder.asc)
-    //   .getObservable()
-    //   .pipe(
-    //     takeUntil(this.ngUnsubscribe)
-    //   )
-    //   .subscribe(
-    //     response => {
-    //       console.log(response);
-    //       this.allProjects = response.items;
-    //     },
-    //     error => this.handleCloudError(error)
-    //   );
     this.deliveryClient
       .items<Project>()
-      .containsFilter('elements.project_type',['work_project'])
+      .containsFilter('elements.project_type', ['work_project'])
       .orderParameter('elements.sort_order', SortOrder.asc)
       .getObservable()
       .pipe(
@@ -70,14 +63,14 @@ export class PageProjectsComponent implements OnInit, OnDestroy {
       )
       .subscribe(
         response => {
-          console.log('Work projects:',response);
+          //console.log('Work projects:',response);
           this.workProjects = response.items;
         },
         error => this.handleCloudError(error)
       );
     this.deliveryClient
       .items<Project>()
-      .containsFilter('elements.project_type',['personal_project'])
+      .containsFilter('elements.project_type', ['personal_project'])
       .orderParameter('elements.sort_order', SortOrder.asc)
       .getObservable()
       .pipe(
@@ -85,7 +78,7 @@ export class PageProjectsComponent implements OnInit, OnDestroy {
       )
       .subscribe(
         response => {
-          console.log('Personal projects:',response);
+          //console.log('Personal projects:',response);
           this.personalProjects = response.items;
         },
         error => this.handleCloudError(error)
@@ -97,7 +90,7 @@ export class PageProjectsComponent implements OnInit, OnDestroy {
     if (error instanceof CloudError) {
       this.error = `Kentico Cloud Error occurred with message: '${
         error.message
-      }' for request with id = '${error.requestId}'`;
+        }' for request with id = '${error.requestId}'`;
     } else {
       this.error = 'Unknown error occurred';
     }

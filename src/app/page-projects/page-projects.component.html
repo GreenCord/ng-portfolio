@@ -1,35 +1,35 @@
-<div class="grid-container-fluid hero-bg-reverse hero-projects">
-  <div class="grid-container">
-    <div class="hero">
-      <h1 class="buffer-top-4x">Projects</h1>
+<div>
+  <div class="grid-container-fluid hero-bg-reverse hero-projects">
+    <div class="grid-container">
+      <div class="hero">
+        <h1 class="buffer-top-4x">Projects</h1>
+      </div>
     </div>
   </div>
-</div>
-<div class="grid-container-fluid">
-  <div class="grid-container">
-    <div class="projects">
-      <h2>Work Projects</h2>
-      <div class="project-grid">
-        <div *ngFor="let workProject of workProjects" class="project-item">
-          <a href="#" alt="">
-            <img src="{{ workProject.project_header_image.assets[0].url }}" alt="{{ workProject.project_header_image.assets[0].description }}" />
-            <h3>{{ workProject.project_name.text }}</h3>
-          </a>
-          <span [innerHtml]="workProject.short_intro.value"></span>
-          
-        </div>
-      </div>
-      <h2>Personal Projects</h2>
-      <div class="project-grid">
-          <div *ngFor="let personalProject of personalProjects" class="project-item">
-            <a href="#" alt="">
-              <img src="{{ personalProject.project_header_image.assets[0].url }}" alt="{{ personalProject.project_header_image.assets[0].description }}" />
-              <h3>{{ personalProject.project_name.text }}</h3>
+  <div class="grid-container-fluid">
+    <div class="grid-container">
+      <div class="projects">
+        <h2>Work Projects</h2>
+        <div class="project-grid">
+          <div *ngFor="let project of workProjects" [routerLink]="['/projects',project.urlslug.value]" title="{{ project.project_name.text }}" class="project-item">
+            <a [routerLink]="['/projects',project.urlslug.value]" title="{{ project.project_name.text }}">
+              <img src="{{ project.project_header_image.assets[0].url }}" alt="{{ project.project_header_image.assets[0].description }}" />
+              <h3 [innerHtml]="project.project_name.text"></h3>
             </a>
-            <span [innerHtml]="personalProject.short_intro.value"></span>
-            
+            <span [innerHtml]="project.short_intro.value"></span>
           </div>
         </div>
+        <h2>Personal Projects</h2>
+        <div class="project-grid">
+          <div *ngFor="let project of personalProjects" (click)="onSelect(project)" class="project-item">
+            <a [routerLink]="['/projects',project.urlslug.value]" title="{{ project.project_name.text }}">
+              <img src="{{ project.project_header_image.assets[0].url }}" alt="{{ project.project_header_image.assets[0].description }}" />
+              <h3 [innerHtml]="project.project_name.text"></h3>
+            </a>
+            <span [innerHtml]="project.short_intro.value"></span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

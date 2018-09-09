@@ -54,7 +54,6 @@ function getHiddenProp(){
 		},
 
 		changer: function(text,fade) {
-			console.log('changing');
 			if (fade) {
 				$('#js-herochanger').fadeTo(400, 0, function(){
 					$(this).text(text);
