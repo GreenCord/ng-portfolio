@@ -70,6 +70,8 @@ img {
         display: flex;
         flex-direction: column;
         overflow-x: hidden;
+    }
+    .flexme {
         overflow-y: scroll;
         -webkit-overflow-scrolling: touch;
     }
