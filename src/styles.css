@@ -339,17 +339,16 @@ img {
         text-shadow: 0 1px 5px rgba(0, 0, 0, 0.67);
     }
     .hero-home {
-        background: url('./assets/img/home_bg_3.jpg') 50% 50% no-repeat;
+        background: url('./assets/img/home_bg_3.jpg') center/cover no-repeat;
     }
     .hero-projects {
-        background: url('./assets/img/projects_bg.jpg') 50% 50% no-repeat;
+        background: url('./assets/img/projects_bg.jpg') center/cover no-repeat;
     }
     .hero-skills {
-        background: url('./assets/img/skills_bg.jpg') 50% 50% no-repeat;
+        background: url('./assets/img/skills_bg.jpg') center/cover no-repeat;
     }
     .featured-baseofclubs {
-        background: #202b5b url('./assets/img/feature-baseofclubs-bg.jpg') top center no-repeat;
-        background-size: cover;
+        background: #202b5b url('./assets/img/feature-baseofclubs-bg.jpg') center/cover no-repeat;
     }
     .hero-home h1 {
         animation: slowgrow 30s ease-out forwards;

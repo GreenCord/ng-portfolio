@@ -22,6 +22,7 @@ import { Project } from '../models/project.class';
   templateUrl: './page-projects-detail.component.html',
   styleUrls: ['./page-projects-detail.component.css']
 })
+
 export class PageProjectsDetailComponent implements OnInit {
   protected ngUnsubscribe: Subject<void> = new Subject<void>();
 

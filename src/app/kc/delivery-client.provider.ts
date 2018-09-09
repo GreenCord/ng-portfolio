@@ -4,9 +4,6 @@ import { Project } from '../models/project.class';
 import { config } from 'dotenv';
 import { parse } from 'url';
 
-// import * as dotenv from 'dotenv';
-// dotenv.config();
-
 export function DeliveryClientFactory() {
 
   return new DeliveryClient({
