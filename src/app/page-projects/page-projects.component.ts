@@ -31,6 +31,8 @@ export class PageProjectsComponent implements OnInit, OnDestroy {
   public error?: string;
 
   public allProjects?: Project[];
+  public workProjects?: Project[];
+  public personalProjects?: Project[];
 
   constructor(private deliveryClient: DeliveryClient) { }
 
@@ -44,8 +46,23 @@ export class PageProjectsComponent implements OnInit, OnDestroy {
   }
 
   loadData(): void {
+    // this.deliveryClient
+    //   .items<Project>()
+    //   .orderParameter('elements.sort_order', SortOrder.asc)
+    //   .getObservable()
+    //   .pipe(
+    //     takeUntil(this.ngUnsubscribe)
+    //   )
+    //   .subscribe(
+    //     response => {
+    //       console.log(response);
+    //       this.allProjects = response.items;
+    //     },
+    //     error => this.handleCloudError(error)
+    //   );
     this.deliveryClient
       .items<Project>()
+      .containsFilter('elements.project_type',['work_project'])
       .orderParameter('elements.sort_order', SortOrder.asc)
       .getObservable()
       .pipe(
@@ -53,8 +70,23 @@ export class PageProjectsComponent implements OnInit, OnDestroy {
       )
       .subscribe(
         response => {
-          console.log(response);
-          this.allProjects = response.items;
+          console.log('Work projects:',response);
+          this.workProjects = response.items;
+        },
+        error => this.handleCloudError(error)
+      );
+    this.deliveryClient
+      .items<Project>()
+      .containsFilter('elements.project_type',['personal_project'])
+      .orderParameter('elements.sort_order', SortOrder.asc)
+      .getObservable()
+      .pipe(
+        takeUntil(this.ngUnsubscribe)
+      )
+      .subscribe(
+        response => {
+          console.log('Personal projects:',response);
+          this.personalProjects = response.items;
         },
         error => this.handleCloudError(error)
       );
