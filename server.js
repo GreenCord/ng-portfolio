@@ -1,4 +1,5 @@
 const express = require('express');
+const compression = require('compression');
 const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
@@ -11,13 +12,15 @@ require('dotenv').config();
 // var MYCOLLECTIONNAME_COLLECTION = 'mycollectionname';
 
 // Route Imports
-var projects = require('./routes/projects');
+const projects = require('./routes/projects');
 
-var app = express();
+
+const app = express();
+app.use(compression());
 app.use(bodyParser.json());
 
 // Create link to Angular build directory
-var distDir = __dirname + '/dist/';
+const distDir = __dirname + '/dist/';
 app.use(express.static(distDir));
 
 // Create a database variable outside of the database connection callback to reuse
