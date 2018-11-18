@@ -7,13 +7,14 @@ import { ContentItem, Fields } from 'kentico-cloud-delivery';
  * Note: You can substitute 'ContentItem' type with another generated class. Generator doesn't have this information available
  * and so its up to you to define relationship between models.
  */
-export class Skill extends ContentItem {
-    public skillName: Fields.TextField;
+export class Homepage extends ContentItem {
+    public featuredProject: ContentItem[];
+    public introtext: Fields.RichTextField;
     constructor() {
         super({
             propertyResolver: ((fieldName: string) => {
-                if (fieldName === 'skill_name') {
-                    return 'skillName';
+                if (fieldName === 'featured_project') {
+                    return 'featuredProject';
                 }
                 return fieldName;
             })

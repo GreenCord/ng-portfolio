@@ -18,7 +18,7 @@ export class Project extends ContentItem {
     public projectType: Fields.MultipleChoiceField;
     public projectName: Fields.TextField;
     public projectDate: Fields.DateTimeField;
-    
+
     constructor() {
         super({
             linkResolver: (link) => {

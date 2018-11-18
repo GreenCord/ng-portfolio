@@ -16,6 +16,7 @@ import { takeUntil } from 'rxjs/operators';
 import { Project } from '../models/project.class';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'page-projects',
   templateUrl: './page-projects.component.html',
   styleUrls: ['./page-projects.component.css']
@@ -25,7 +26,7 @@ export class PageProjectsComponent implements OnInit, OnDestroy {
 
   protected ngUnsubscribe: Subject<void> = new Subject<void>();
 
-  private readonly projectType = 'projects';
+  private readonly type = 'projects';
 
   public readonly title = 'My Projects';
 
@@ -55,6 +56,7 @@ export class PageProjectsComponent implements OnInit, OnDestroy {
   loadData(): void {
     this.deliveryClient
       .items<Project>()
+      .type(this.type)
       .containsFilter('elements.project_type', ['work_project'])
       .orderParameter('elements.sort_order', SortOrder.asc)
       .getObservable()
@@ -63,13 +65,13 @@ export class PageProjectsComponent implements OnInit, OnDestroy {
       )
       .subscribe(
         response => {
-          //console.log('Work projects:',response);
           this.workProjects = response.items;
         },
         error => this.handleCloudError(error)
       );
     this.deliveryClient
       .items<Project>()
+      .type(this.type)
       .containsFilter('elements.project_type', ['personal_project'])
       .orderParameter('elements.sort_order', SortOrder.asc)
       .getObservable()
@@ -78,7 +80,6 @@ export class PageProjectsComponent implements OnInit, OnDestroy {
       )
       .subscribe(
         response => {
-          //console.log('Personal projects:',response);
           this.personalProjects = response.items;
         },
         error => this.handleCloudError(error)

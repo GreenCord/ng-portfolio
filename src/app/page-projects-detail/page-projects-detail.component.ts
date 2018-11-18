@@ -34,11 +34,10 @@ export class PageProjectsDetailComponent implements OnInit {
 
   public selectedProject?: Project[];
   public noProject: boolean;
-  
+
   constructor(private router: Router, private deliveryClient: DeliveryClient) { }
 
   ngOnInit() {
-    //console.log('RouterUrl split:',this.router.url.split('/').slice(2).toString());
     const projectName = this.router.url.split('/').slice(2).toString();
     this.loadData(projectName);
   }
@@ -49,7 +48,7 @@ export class PageProjectsDetailComponent implements OnInit {
   }
 
   loadData(projectName: string): void {
-    
+
     this.deliveryClient
       .items<Project>()
       .equalsFilter('elements.urlslug',projectName)
@@ -59,7 +58,7 @@ export class PageProjectsDetailComponent implements OnInit {
       )
       .subscribe(
         response => {
-          //console.log('Found project:',response);
+          // console.log('Found project:',response);
           if (!response.isEmpty) {
             this.selectedProject = response.items;
           } else {

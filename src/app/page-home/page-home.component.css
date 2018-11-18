@@ -1,0 +1,6 @@
+.mask {
+  background: -moz-radial-gradient(center, ellipse cover, rgba(0, 0, 0, 0.33) 0%, rgba(0, 0, 0, 1) 100%);
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(0, 0, 0, 0.33) 0%, rgba(0, 0, 0, 1) 100%);
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.33) 0%, rgba(0, 0, 0, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#54000000', endColorstr='#000000', GradientType=1);
+}

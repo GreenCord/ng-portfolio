@@ -1,4 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -115,7 +115,7 @@ img {
 		word-wrap: break-word;
 	}
 
-	p, code, blockquote {  
+	p, code, blockquote {
 		color: inherit;
 		margin: 0 0 3rem;
 	}
@@ -125,8 +125,8 @@ img {
 		margin-bottom: 1.5rem;
 	}
 
-	p+p, dl+dl, dd+dt, li+li { 
-		margin-top: -0.7500rem; 
+	p+p, dl+dl, dd+dt, li+li {
+		margin-top: -0.7500rem;
 	}
 
 	code,
@@ -611,7 +611,7 @@ img {
     }
     100% {
         background-size: 103%;
-        opacity: 0.67;
+        opacity: 0.88;
     }
 }
 

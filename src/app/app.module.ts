@@ -14,7 +14,7 @@ import { PageNotFoundComponent } from './page-notfound/page-notfound.component';
 
 import { DeliveryClientProvider } from './kc/delivery-client.provider';
 
-import { Project } from './models/project.class'
+import { Project } from './models/project.class';
 
 const appRoutes: Routes = [
   { path: '', component: PageHomeComponent },
