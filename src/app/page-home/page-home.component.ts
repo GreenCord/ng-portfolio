@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import {
   CloudError,
   ContentItem,
@@ -22,6 +23,7 @@ import { Homepage } from '../models/homepage.class';
   styleUrls: ['./page-home.component.css']
 })
 export class PageHomeComponent implements OnInit, OnDestroy {
+  videoTag;
 
   protected ngUnsubscribe: Subject<void> = new Subject<void>();
 
@@ -33,7 +35,9 @@ export class PageHomeComponent implements OnInit, OnDestroy {
 
   public homeTexts?: Homepage[];
 
-  constructor(private deliveryClient: DeliveryClient) { }
+  constructor(private deliveryClient: DeliveryClient, private sanitizer: DomSanitizer) {
+    this.videoTag = this.getVideoTag();
+  }
 
   ngOnInit(): void {
     this.loadData();
@@ -46,19 +50,19 @@ export class PageHomeComponent implements OnInit, OnDestroy {
 
   loadData(): void {
     this.deliveryClient
-    .items<Homepage>()
-    .type(this.type)
-    .getObservable()
-    .pipe(
-      takeUntil(this.ngUnsubscribe)
-    )
-    .subscribe(
-      response => {
-        // console.log('incoming homepage items: ', response);
-        this.homeTexts = response.items;
-      },
-      error => this.handleCloudError(error)
-    );
+      .items<Homepage>()
+      .type(this.type)
+      .getObservable()
+      .pipe(
+        takeUntil(this.ngUnsubscribe)
+      )
+      .subscribe(
+        response => {
+          // console.log('incoming homepage items: ', response);
+          this.homeTexts = response.items;
+        },
+        error => this.handleCloudError(error)
+      );
   }
 
   private handleCloudError(error: CloudError | any): void {
@@ -69,6 +73,16 @@ export class PageHomeComponent implements OnInit, OnDestroy {
     } else {
       this.error = 'Unknown error occurred';
     }
+  }
+
+  private getVideoTag() {
+    return this.sanitizer.bypassSecurityTrustHtml(`
+      <video muted autoplay loop playsinline>
+        <source src="./assets/vid/opt/scifitunnel04.mp4" type="video/mp4">
+        <source src="./assets/vid/opt/scifitunnel04.ogv" type="video/ogg">
+        <source src="./assets/vid/opt/scifitunnel04.webm" type="video/webm">
+      </video>
+    `);
   }
 
 }

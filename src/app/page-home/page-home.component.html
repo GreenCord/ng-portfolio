@@ -1,11 +1,7 @@
 <main>
   <article class="hero hero-home">
-    <div class="hero-video-wrapper">
-      <video muted autoplay loop playsinline>
-        <source src="./assets/vid/opt/scifitunnel04.mp4" type="video/mp4">
-          <source src="./assets/vid/opt/scifitunnel04.ogv" type="video/ogg">
-        <source src="./assets/vid/opt/scifitunnel04.webm" type="video/webm">
-      </video>
+    <div class="hero-video-wrapper" [innerHTML]="videoTag">
+
     </div>
     <section>
       <h1>Front End Web Development</h1>
