@@ -1,0 +1,48 @@
+// Base Font 1px = 0.0625rem
+$pxfont: 0.0625rem;
+$percent100: 100%;
+
+// Font Weights // ----------
+$light:    300;
+$regular:  400;
+$medium:   500;
+$semibold: 600;
+$bold:     700;
+$black:    900;
+
+// Font Stacks // ----------
+$font-stack-display: 'Nunito Sans', sans-serif;
+$font-stack-body:    'Lato', sans-serif;
+$font-stack-mono:    'Lucida Sans Typewriter', 'Lucida Console', Monaco, monospace, monospace;
+
+// Layout // ------------
+$containermax: 1280px;
+
+// Colors // ------------
+
+$color-accent1: #85c232;
+$color-accent1-dark: #4b7f03;
+$color-accent1-light: #c1ee83;
+
+$color-accent2: #d44f37;
+$color-accent2-dark: #8b1904;
+$color-accent2-light: #ff9f8d;
+
+$color-accent3: #76288c;
+$color-accent3-dark: #49055c;
+$color-accent3-light: #a769b9;
+
+$color-neutral: #474b4f;
+$color-neutral-dark: #14191d;
+$color-neutral-light: #818589;
+
+$color-white: #dedede;
+$color-black: #0e0e0e;
+
+$color-link-default: $color-accent1;
+$color-link-visited: $color-accent3;
+$color-link-hover: $color-accent1-light;
+$color-link-active: $color-accent1-light;
+
+// Typography Margins
+$margin-default: 40 * $pxfont;

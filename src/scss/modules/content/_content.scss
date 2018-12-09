@@ -1,0 +1,70 @@
+article.content {
+  left: 0;
+  padding-bottom: $margin-default;
+  padding-top: $margin-default;
+  position: relative;
+  top: 0;
+
+  a {
+    color: $color-link-default;
+
+    &:hover {
+      color: $color-accent1-light;
+    }
+  }
+  
+  section {
+    margin: 0 auto;
+    max-width: 640px;
+
+    strong {
+      color: $color-white;
+      letter-spacing: 1.1 * $pxfont;
+    }
+
+  }
+
+  &.content-feature {
+    border-top: 1px solid $color-neutral;
+    border-bottom: 1px solid $color-neutral;
+    background-size: cover;
+    padding: $margin-default $margin-default/2;
+    z-index: 0;
+    &:after {
+      content: '';
+      background: radial-gradient(ellipse at center, rgba(20, 25, 29, 0.67) 0%, rgba(20, 25, 29, 1) 100%);
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      z-index: -1;
+    }
+
+    @include respond-to('small') {
+      padding-bottom: $margin-default *2;
+      padding-top: $margin-default*2;
+    }
+    @include respond-to('medium') {
+      padding-bottom: $margin-default *3;
+      padding-top: $margin-default*3;
+    }
+    @include respond-to('large') {
+      padding-bottom: $margin-default *5;
+      padding-top: $margin-default*5;
+    }
+
+    section {
+      left: 0;
+      max-width: 768px;
+      position: relative;
+      top: 0;
+      z-index: 1;
+    }
+
+    h1, h2, h3, h4, h5, h6, p {
+      color: $color-white;
+      text-shadow: 0 (1*$pxfont) (5*$pxfont) rgba(0,0,0,0.67);
+    }
+  }
+}

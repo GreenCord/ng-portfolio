@@ -1,0 +1,12 @@
+@import "../partials/variables";
+
+.site-footer {
+  background: $color-neutral;
+  color: $color-neutral-light;
+  padding: ($margin-default/2) 0;
+  text-align: center;
+
+  p {
+    margin: 0;
+  }
+}

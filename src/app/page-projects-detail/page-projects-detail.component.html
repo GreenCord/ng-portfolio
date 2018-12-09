@@ -1,39 +1,28 @@
 <div *ngFor="let project of selectedProject">
-  <div class="grid-container-fluid hero-bg-reverse hero-projects">
-    <div class="grid-container">
-      <div class="content">
-        <img src="{{ project.project_header_image.assets[0].url }}" title="{{ project.project_header_image.assets[0].description }}">
-        <h1 [innerHtml]="project.project_name.text"></h1>
-        <ul class="skills-pills">
-          <li *ngFor="let skill of project.skills.options">{{ skill.name}}</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="grid-container-fluid">
-    <div class="grid-container">
-      <div class="content">
-        <div class="content-container">
-          <div [innerHtml]="project.full_text.value"></div>
-          <div class="links-container">
-            <div class="links-header">
-              <h3>Project Links</h3>
-            </div>
-            <div [innerHtml]="project.links.value"></div>
-
-
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
+  <article class="hero hero-project">
+    <section>
+      <img src="{{ project.project_header_image.assets[0].url }}" title="{{ project.project_header_image.assets[0].description }}">
+      <h1 [innerHtml]="project.project_name.text"></h1>
+      <ul class="skills-pills">
+        <li *ngFor="let skill of project.skills.options">{{ skill.name}}</li>
+      </ul>
+    </section>
+  </article>
+  <article class="content content-project">
+    <section [innerHtml]="project.full_text.value"></section>
+    <section class="links">
+      <header>
+        <h3>Project Links</h3>
+      </header>
+      <div [innerHtml]="project.links.value"></div>
+    </section>
+  </article>
 </div>
-<div *ngIf="noProject" class="grid-container-fluid">
-  <div class="grid-container">
-    <div class="content">
-      <h1>404 Project Not Found</h1>
-      <p>Sorry, the project you were trying to view no longer exists. It was nuked from orbit, just to be sure.</p>
-    </div>
-  </div>
+
+<div *ngIf="noProject">
+  <article class="hero hero-home">
+    <h1>404 Project Not Found</h1>
+    <p>Sorry, the project you were trying to view no longer exists. It was nuked from orbit, just to be sure.</p>
+    <a class="btn btn-solid" [routerLink]="['/projects']" routerLinkActive="router-link-active">Take me back to all the projects!</a>
+  </article>
 </div>

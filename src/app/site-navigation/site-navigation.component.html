@@ -1,19 +1,17 @@
-<div class="header">
-    <a class="sr sr--tabshow" href="#skipnav" title="Skip Navigation">Skip to main content</a>
-    <div class="grid-container-fluid site-header-bg">
-      <div class="grid-container">
-        <a href="/" class="site-header">
-          <div class="site-header-main">Steve Martinez</div>
-          <div class="site-header-sub">Web Developer</div>
-        </a>
-        <div class="site-nav">
-          <nav>
-            <div class="menu-item"><a routerLink="projects" routerLinkActive="active" title="View my Projects"><i class="fal fa-folder-open"></i><span class="menu-item-text">Projects</span></a></div>
-            <div class="menu-item"><a routerLink="skills" routerLinkActive="active" title="View my Skills"><i class="fal fa-file-code"></i><span class="menu-item-text">Skills</span></a></div>
-            <!--<div class="menu-item"><a href="/articles.html"><i class="fal fa-newspaper"></i><span class="menu-item-text">Articles</span></a></div>-->
-            <div class="menu-item"><a href="https://www.linkedin.com/in/stevenmartinez/" target="_blank"><i class="fal fa-id-card"></i><span class="menu-item-text">Connect</span></a></div>
-          </nav>
-        </div>
-      </div>
-    </div>
+<header class="site-header">
+  <div class="site-header-container">
+    <section>
+      <a routerLink="/" title="Home">
+        <div class="primary">Steve Martinez</div>
+        <div class="secondary">Web Developer</div>
+      </a>
+    </section>
+    <nav>
+      <ul>
+        <li><a routerLink="projects" routerLinkActive="active" title="View my Projects">Projects</a></li>
+        <li><a routerLink="skills" routerLinkActive="active" title="View my Skills">Skills</a></li>
+        <li><a href="https://www.linkedin.com/in/stevenmartinez/" target="_blank">Connect</a></li>
+      </ul>
+    </nav>
   </div>
+</header>

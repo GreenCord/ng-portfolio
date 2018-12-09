@@ -1,0 +1,29 @@
+article.content.content-project {
+  background: $color-black;
+  color: $color-neutral-light;
+  padding: $margin-default/2;
+
+  @include respond-to('xsmall') {
+    padding: $margin-default;
+  }
+
+  .links {
+    background: $color-accent2-dark;
+    border-radius: 25*$pxfont;
+    padding: $margin-default/2;
+
+    ul {
+      background: $color-neutral-dark;
+      border-radius: 20*$pxfont;
+      display: block;
+      list-style-type: none;
+      margin: 0;
+      padding: $margin-default/2;
+      width: 100%;
+
+      li:only-of-type { 
+        margin-bottom: 0;
+      }
+    }
+  }
+}
