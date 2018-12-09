@@ -39,7 +39,8 @@
               "src/mstile-310x150.png",
               "src/mstile-310x310.png",
               "src/assets",
-              "src/robots.txt"
+              "src/robots.txt",
+              "src/google01265fa83cde8da6.html"
             ],
             "styles": [
               "src/scss/styles.scss"
