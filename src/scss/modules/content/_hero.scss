@@ -3,6 +3,11 @@ article.hero {
   padding: $margin-default $margin-default/2;
   position: relative;
   top: 0;
+
+  section {
+    position: relative;
+    z-index: 2;
+  }
 }
 
 article.hero.hero-home {
@@ -80,7 +85,7 @@ article.hero.hero-project {
   position: absolute;
   right: 0;
   top: 0;
-  z-index: -100;
+  z-index: 1;
   @include respond-to('xsmall') {
     &:after {
       content: '';

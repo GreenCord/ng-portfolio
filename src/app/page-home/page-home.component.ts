@@ -54,7 +54,7 @@ export class PageHomeComponent implements OnInit, OnDestroy {
     )
     .subscribe(
       response => {
-        console.log('incoming homepage items: ', response);
+        // console.log('incoming homepage items: ', response);
         this.homeTexts = response.items;
       },
       error => this.handleCloudError(error)
