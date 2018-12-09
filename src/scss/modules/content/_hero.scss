@@ -85,7 +85,6 @@ article.hero.hero-project {
   position: absolute;
   right: 0;
   top: 0;
-  z-index: 1;
   @include respond-to('xsmall') {
     &:after {
       content: '';
