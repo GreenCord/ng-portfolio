@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import {
   CloudError,
   ContentItem,
@@ -23,6 +24,7 @@ import { Project } from '../models/project.class';
 })
 
 export class PageProjectsComponent implements OnInit, OnDestroy {
+  videoTag;
 
   protected ngUnsubscribe: Subject<void> = new Subject<void>();
 
@@ -42,7 +44,9 @@ export class PageProjectsComponent implements OnInit, OnDestroy {
     this.selectedProject = project;
   }
 
-  constructor(private deliveryClient: DeliveryClient) { }
+  constructor(private deliveryClient: DeliveryClient, private sanitizer: DomSanitizer) {
+    this.videoTag = this.getVideoTag();
+  }
 
   ngOnInit(): void {
     this.loadData();
@@ -97,4 +101,13 @@ export class PageProjectsComponent implements OnInit, OnDestroy {
     }
   }
 
+  private getVideoTag() {
+    return this.sanitizer.bypassSecurityTrustHtml(`
+    <video muted autoplay loop playsinline>
+      <source src="assets/vid/opt/lightning_animation.mp4" type="video/mp4">
+      <source src="assets/vid/opt/lightning_animation.ogv" type="video/ogg">
+      <source src="assets/vid/opt/lightning_animation.webm" type="video/webm">
+    </video>
+    `);
+  }
 }
