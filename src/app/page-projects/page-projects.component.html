@@ -1,39 +1,38 @@
-
-  <article class="hero hero-home">
-    <div class="hero-video-wrapper">
-      <video muted autoplay loop>
-        <source src="assets/vid/opt/lightning_animation.webm" type="video/webm">
-        <source src="assets/vid/opt/lightning_animation.mp4" type="video/mp4">
+<article class="hero hero-home">
+  <div class="hero-video-wrapper">
+    <video muted autoplay loop playsinline>
+      <source src="assets/vid/opt/lightning_animation.mp4" type="video/mp4">
         <source src="assets/vid/opt/lightning_animation.ogv" type="video/ogg">
-      </video>
-    </div>
+      <source src="assets/vid/opt/lightning_animation.webm" type="video/webm">
+    </video>
+  </div>
+  <section>
+    <h1>Projects</h1>
+    <p>Various personal and work projects that I have worked on.</p>
+  </section>
+</article>
+<article class="content content-grid">
+  <div class="container">
     <section>
-      <h1>Projects</h1>
-      <p>Various personal and work projects that I have worked on.</p>
+      <h2>Work Projects</h2>
+      <div class="grid-item" *ngFor="let project of workProjects" [routerLink]="['/projects',project.urlslug.value]"
+        title="{{ project.project_name.text }}">
+        <a [routerLink]="['/projects',project.urlslug.value]" title="{{ project.project_name.text }}">
+          <img src="{{ project.project_header_image.assets[0].url }}" alt="{{ project.project_header_image.assets[0].description }}" />
+          <h3 [innerHtml]="project.project_name.text"></h3>
+        </a>
+        <span [innerHtml]="project.short_intro.value"></span>
+      </div>
     </section>
-  </article>
-  <article class="content content-grid">
-    <div class="container">
-      <section>
-        <h2>Work Projects</h2>
-        <div class="grid-item" *ngFor="let project of workProjects" [routerLink]="['/projects',project.urlslug.value]"
-          title="{{ project.project_name.text }}">
-          <a [routerLink]="['/projects',project.urlslug.value]" title="{{ project.project_name.text }}">
-            <img src="{{ project.project_header_image.assets[0].url }}" alt="{{ project.project_header_image.assets[0].description }}" />
-            <h3 [innerHtml]="project.project_name.text"></h3>
-          </a>
-          <span [innerHtml]="project.short_intro.value"></span>
-        </div>
-      </section>
-      <section>
-        <h2>Personal Projects</h2>
-        <div class="grid-item" *ngFor="let project of personalProjects" (click)="onSelect(project)">
-          <a [routerLink]="['/projects',project.urlslug.value]" title="{{ project.project_name.text }}">
-            <img src="{{ project.project_header_image.assets[0].url }}" alt="{{ project.project_header_image.assets[0].description }}" />
-            <h3 [innerHtml]="project.project_name.text"></h3>
-          </a>
-          <span [innerHtml]="project.short_intro.value"></span>
-        </div>
-      </section>
-    </div>
-  </article>
+    <section>
+      <h2>Personal Projects</h2>
+      <div class="grid-item" *ngFor="let project of personalProjects" (click)="onSelect(project)">
+        <a [routerLink]="['/projects',project.urlslug.value]" title="{{ project.project_name.text }}">
+          <img src="{{ project.project_header_image.assets[0].url }}" alt="{{ project.project_header_image.assets[0].description }}" />
+          <h3 [innerHtml]="project.project_name.text"></h3>
+        </a>
+        <span [innerHtml]="project.short_intro.value"></span>
+      </div>
+    </section>
+  </div>
+</article>

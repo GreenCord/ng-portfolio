@@ -98,13 +98,10 @@ article.hero.hero-project {
     }
   }
   video {
-    display: none;
-    @include respond-to('xsmall') {
-      display: block; //height: 100%;
-      left: 0;
-      position: absolute;
-      top: 0;
-      width: 100%;
-    }
+    display: block;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
   }
 }
