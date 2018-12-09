@@ -38,7 +38,8 @@
               "src/mstile-150x150.png",
               "src/mstile-310x150.png",
               "src/mstile-310x310.png",
-              "src/assets"
+              "src/assets",
+              "src/robots.txt"
             ],
             "styles": [
               "src/scss/styles.scss"
