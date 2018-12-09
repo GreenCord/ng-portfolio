@@ -8,10 +8,6 @@ a.btn {
   width: auto;
   @include prefix('transition',all 0.2s ease-in-out);
 
-  &+a.btn {
-    margin-left: $margin-default/4;
-  }
-
   &.btn-solid {
     border: 2px solid $color-accent1;
     background-color: $color-accent1-dark;
