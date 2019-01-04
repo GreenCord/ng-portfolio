@@ -1,6 +1,7 @@
 @import "../partials/variables";
 @import "../partials/mixins";
 .skip-to-content {
+  background: $color-white;
   height: 1px;
   left: -10000px;
   overflow: hidden;

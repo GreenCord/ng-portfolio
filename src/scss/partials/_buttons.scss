@@ -1,3 +1,4 @@
+.content a.btn,
 a.btn {
   box-shadow: 0 (10*$pxfont) (15*$pxfont) rgba(0,0,0,0.67);
   cursor: pointer;
@@ -10,7 +11,7 @@ a.btn {
 
   &.btn-solid {
     border: 2px solid $color-accent1;
-    background-color: $color-accent1-dark;
+    background-color: $color-accent1-darker;
     color: $color-white;
   }
 
