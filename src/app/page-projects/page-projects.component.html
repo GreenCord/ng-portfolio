@@ -10,9 +10,8 @@
   <div class="container">
     <section>
       <h2>Work Projects</h2>
-      <div class="grid-item" *ngFor="let project of workProjects" [routerLink]="['/projects',project.urlslug.value]"
-        title="{{ project.project_name.text }}">
-        <a [routerLink]="['/projects',project.urlslug.value]" title="{{ project.project_name.text }}">
+      <div class="grid-item" *ngFor="let project of workProjects" (click)="onSelect(project)">
+        <a [routerLink]="['/projects',project.urlslug.value]">
           <img src="{{ project.project_header_image.assets[0].url }}" alt="{{ project.project_header_image.assets[0].description }}" />
           <h3 [innerHtml]="project.project_name.text"></h3>
         </a>
@@ -22,7 +21,7 @@
     <section>
       <h2>Personal Projects</h2>
       <div class="grid-item" *ngFor="let project of personalProjects" (click)="onSelect(project)">
-        <a [routerLink]="['/projects',project.urlslug.value]" title="{{ project.project_name.text }}">
+        <a [routerLink]="['/projects',project.urlslug.value]">
           <img src="{{ project.project_header_image.assets[0].url }}" alt="{{ project.project_header_image.assets[0].description }}" />
           <h3 [innerHtml]="project.project_name.text"></h3>
         </a>
