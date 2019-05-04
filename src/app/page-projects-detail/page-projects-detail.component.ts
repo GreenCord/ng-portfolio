@@ -60,7 +60,7 @@ export class PageProjectsDetailComponent implements OnInit {
       )
       .subscribe(
         response => {
-          console.log('Found project:',response);
+          // console.log('Found project:',response);
           if (!response.isEmpty) {
             this.selectedProject = response.items;
           } else {
