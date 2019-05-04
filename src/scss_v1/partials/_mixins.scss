@@ -1,0 +1,20 @@
+@import "breakpoints";
+
+@mixin respond-to($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media #{inspect(map-get($breakpoints, $breakpoint))} {
+            @content;
+        }
+    }
+
+    @else {
+        @warn "Not valid breakpoint: `#{$breakpoint}`." + "Available breakpoints are: #{map-keys($breakpoints)}.";
+    }
+}
+
+@mixin prefix($prop, $val) {
+    -webkit-#{$prop}: $val;
+    -moz-#{$prop}: $val;
+    -ms-#{$prop}: $val;
+    #{$prop}: $val;
+}

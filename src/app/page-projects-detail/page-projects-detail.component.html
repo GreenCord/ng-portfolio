@@ -1,21 +1,27 @@
 <div *ngFor="let project of selectedProject">
-  <article class="hero hero-project">
-    <section>
-      <img src="{{ project.project_header_image.assets[0].url }}" title="{{ project.project_header_image.assets[0].description }}">
-      <h1 [innerHtml]="project.project_name.text"></h1>
-      <ul class="skills-pills">
-        <li *ngFor="let skill of project.skills.options">{{ skill.name}}</li>
-      </ul>
-    </section>
+  <article class="hero hero-projects-detail">
+    <div class="container">
+      <header>
+        <img src="{{ project.projectHeaderImage.assets[0].url }}" title="{{ project.projectHeaderImage.assets[0].description }}">
+        <h1 [innerHtml]="project.projectName.text"></h1>
+      </header>
+      <section>
+        <ul class="skills-pills">
+          <li *ngFor="let skill of project.skills.options">{{ skill.name}}</li>
+        </ul>
+      </section>
+    </div>
   </article>
   <article class="content content-project">
-    <section [innerHtml]="project.full_text.value"></section>
-    <section class="links">
-      <header>
-        <h3>Project Links</h3>
-      </header>
-      <div [innerHtml]="project.links.value"></div>
-    </section>
+    <div class="container">
+      <section [innerHtml]="project.fullText.value"></section>
+      <section *ngIf="hasLinks" class="links">
+        <header>
+          <h3>Project Links</h3>
+        </header>
+        <div [innerHtml]="project.links.value"></div>
+      </section>
+    </div>
   </article>
 </div>
 

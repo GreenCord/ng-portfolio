@@ -1,10 +1,16 @@
-<article class="hero hero-home">
-  <div class="hero-video-wrapper" [innerHTML]="videoTag">
+<article class="hero hero-projects">
+  <div class="container">
+    <header>
+      <div class="hero-content">
+        <h1>Projects</h1>
+      </div>
+    </header>
+    <section>
+      <div class="hero-content">
+        <p>Various personal and work projects that I have worked on.</p>
+      </div>
+    </section>
   </div>
-  <section>
-    <h1>Projects</h1>
-    <p>Various personal and work projects that I have worked on.</p>
-  </section>
 </article>
 <article class="content content-grid">
   <div class="container">
@@ -12,20 +18,20 @@
       <h2>Work Projects</h2>
       <div class="grid-item" *ngFor="let project of workProjects" (click)="onSelect(project)">
         <a [routerLink]="['/projects',project.urlslug.value]">
-          <img src="{{ project.project_header_image.assets[0].url }}" alt="{{ project.project_header_image.assets[0].description }}" />
-          <h3 [innerHtml]="project.project_name.text"></h3>
+          <img src="{{ project.projectHeaderImage.assets[0].url }}" alt="{{ project.projectHeaderImage.assets[0].description }}" />
+          <h3 [innerHtml]="project.projectName.text"></h3>
         </a>
-        <span [innerHtml]="project.short_intro.value"></span>
+        <span [innerHtml]="project.shortIntro.value"></span>
       </div>
     </section>
     <section>
       <h2>Personal Projects</h2>
       <div class="grid-item" *ngFor="let project of personalProjects" (click)="onSelect(project)">
         <a [routerLink]="['/projects',project.urlslug.value]">
-          <img src="{{ project.project_header_image.assets[0].url }}" alt="{{ project.project_header_image.assets[0].description }}" />
-          <h3 [innerHtml]="project.project_name.text"></h3>
+          <img src="{{ project.projectHeaderImage.assets[0].url }}" alt="{{ project.projectHeaderImage.assets[0].description }}" />
+          <h3 [innerHtml]="project.projectName.text"></h3>
         </a>
-        <span [innerHtml]="project.short_intro.value"></span>
+        <span [innerHtml]="project.shortIntro.value"></span>
       </div>
     </section>
   </div>

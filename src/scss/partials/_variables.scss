@@ -20,18 +20,23 @@ $containermax: 1280px;
 
 // Colors // ------------
 
-$color-accent1: #85c232;
-$color-accent1-dark: #4b7f03;
-$color-accent1-darker: #375d02;
-$color-accent1-light: #c1ee83;
+$color-accent1: #5eb495;
+$color-accent1-dark: #21503f;
+$color-accent1-light: #b6e5d4;
+// $color-accent1: #85c232;
+// $color-accent1-dark: #4b7f03;
+// $color-accent1-light: #c1ee83;
 
 $color-accent2: #d44f37;
 $color-accent2-dark: #8b1904;
 $color-accent2-light: #ff9f8d;
 
-$color-accent3: #76288c;
-$color-accent3-dark: #49055c;
-$color-accent3-light: #a769b9;
+$color-accent3: #230e00;
+$color-accent3-dark: #110701;
+$color-accent3-light: #dba27d;
+// $color-accent3: #76288c;
+// $color-accent3-dark: #49055c;
+// $color-accent3-light: #a769b9;
 
 $color-neutral: #474b4f;
 $color-neutral-dark: #14191d;
@@ -41,7 +46,7 @@ $color-white: #dedede;
 $color-black: #0e0e0e;
 
 $color-link-default: $color-accent1;
-$color-link-visited: $color-accent3;
+$color-link-visited: $color-accent2-light;
 $color-link-hover: $color-accent1-light;
 $color-link-active: $color-accent1-light;
 

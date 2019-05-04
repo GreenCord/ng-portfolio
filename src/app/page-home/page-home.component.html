@@ -1,25 +1,50 @@
 <main>
   <article class="hero hero-home">
-    <div class="hero-video-wrapper" [innerHTML]="videoTag">
-
+    <div class="container">
+      <header>
+        <div class="hero-content">
+          <h1><span class="name">Steven Martinez</span> <span class="title">Front End Developer</span></h1>
+        </div>
+      </header>
+      <section>
+        <div class="hero-content">
+          <p>Bridging the gap between designers and back&nbsp;end&nbsp;developers.</p>
+          <p class="cta-wrapper"><a class="btn btn-solid" routerLink="projects" title="View my Projects">View Projects</a></p>
+        </div>
+      </section>
     </div>
-    <section>
-      <h1>Front End Web Development</h1>
-      <p>Never stop <span id="js-herochanger" class="break-xt">working</span> until the job is done.</p>
-    </section>
   </article>
 </main>
 <div *ngFor="let hometext of homeTexts">
   <article class="content content-home">
-    <section [innerHtml]="hometext.introtext.value"></section>
+    <div class="container">
+      <header [innerHtml]="hometext.headertext.value"></header>
+      <section>
+      <div class="cards">
+        <div class="card-item" *ngFor="let card of hometext.sectioncards">
+          <header><span [innerHtml]="card.cardheadertitle.value"></span><span class="subhead" [innerHtml]="card.cardheadersubtitle.value"></span></header>
+          <section [innerText]="card.cardsectiontext.value"></section>
+        </div>
+      </div>
+      </section>
+      <section class="section-cta">
+          <p class="cta-wrapper"><a class="btn btn-solid" type="button" [routerLink]="['/skills']" title="View All Skills">View All Skills</a></p>
+      </section>
+    </div>
   </article>
-  <article [routerLink]="['/projects',hometext.featuredProject[0].urlslug.value]" class="content content-feature"
-    [ngStyle]="{'background-image': 'url(\'' + hometext.featuredProject[0].project_header_image.assets[0].url + '\')'}">
-    <section>
-      <h2>Featured Project: <span [innerHtml]="hometext.featuredProject[0].project_name.text"></span></h2>
-      <div [innerHtml]="hometext.featuredProject[0].short_intro.value"></div>
-      <a class="btn btn-solid" type="button" [routerLink]="['/projects',hometext.featuredProject[0].urlslug.value]"
-        title="{{hometext.featuredProject[0].project_name.text}}">In Depth</a>
-    </section>
+  <article [routerLink]="['/projects',hometext.featuredProject[0].urlslug.value]" class="content content-feature">
+    <div class="container">
+      <div class="content-feature-background" [ngStyle]="{'background-image': 'url(\'' + hometext.featuredProject[0].projectHeaderImage.assets[0].url + '\')'}"></div>
+      <header>
+        <h2>Featured Project: <span [innerHtml]="hometext.featuredProject[0].projectName.text"></span></h2>
+      </header>
+      <section>
+        <div [innerHtml]="hometext.featuredProject[0].shortIntro.value"></div>
+        <p class="cta-wrapper">
+          <a class="btn btn-solid" type="button" [routerLink]="['/projects',hometext.featuredProject[0].urlslug.value]"
+            title="{{hometext.featuredProject[0].projectName.text}}">In Depth</a>
+        </p>
+      </section>
+    </div>
   </article>
 </div>

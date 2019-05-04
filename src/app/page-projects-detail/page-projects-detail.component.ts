@@ -14,10 +14,11 @@ import { throwError } from 'rxjs';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { Project } from '../models/project.class';
+import { Projects } from '../models/projects';
 
 
 @Component({
+// tslint:disable-next-line: component-selector
   selector: 'page-projects-detail',
   templateUrl: './page-projects-detail.component.html',
   styleUrls: ['./page-projects-detail.component.css']
@@ -32,8 +33,9 @@ export class PageProjectsDetailComponent implements OnInit {
 
   public error?: string;
 
-  public selectedProject?: Project[];
+  public selectedProject?: Projects[];
   public noProject: boolean;
+  public hasLinks: boolean;
 
   constructor(private router: Router, private deliveryClient: DeliveryClient) { }
 
@@ -50,19 +52,24 @@ export class PageProjectsDetailComponent implements OnInit {
   loadData(projectName: string): void {
 
     this.deliveryClient
-      .items<Project>()
-      .equalsFilter('elements.urlslug',projectName)
+      .items<Projects>()
+      .equalsFilter('elements.urlslug', projectName)
       .getObservable()
       .pipe(
         takeUntil(this.ngUnsubscribe)
       )
       .subscribe(
         response => {
-          // console.log('Found project:',response);
+          console.log('Found project:',response);
           if (!response.isEmpty) {
             this.selectedProject = response.items;
           } else {
             this.noProject = true;
+          }
+          if (response.items[0].links.value === '<p><br></p>') {
+            this.hasLinks = false;
+          } else {
+            this.hasLinks = true;
           }
         },
         error => this.handleCloudError(error)

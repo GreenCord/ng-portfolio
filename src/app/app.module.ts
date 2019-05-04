@@ -14,7 +14,7 @@ import { PageNotFoundComponent } from './page-notfound/page-notfound.component';
 
 import { DeliveryClientProvider } from './kc/delivery-client.provider';
 
-import { Project } from './models/project.class';
+import { Projects } from './models/projects';
 
 const appRoutes: Routes = [
   { path: '', component: PageHomeComponent },
@@ -45,7 +45,7 @@ const appRoutes: Routes = [
     PageNotFoundComponent
   ],
   imports: [
-    RouterModule.forRoot(appRoutes, { enableTracing: false }),
+    RouterModule.forRoot(appRoutes, { scrollPositionRestoration: 'enabled', enableTracing: false }),
     BrowserModule,
     HttpModule
   ],

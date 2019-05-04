@@ -1,0 +1,84 @@
+article.hero.hero-projects {
+  background-image: url('/assets/img/bridge_b_003_414.jpg');
+  background-position: 90% center;
+
+  @include respond-to('tiny') {
+    h1 { font-size: 36*$pxfont;}
+  }
+
+  @include respond-to('xsmall') {
+    background-image: url('/assets/img/bridge_b_003_800.jpg');
+    h1 { font-size: 60*$pxfont;}
+  }
+
+  @include respond-to('medium') {
+    background-image: url('/assets/img/bridge_b_003_1024.jpg');
+  }
+
+  @include respond-to('large') {
+    background-image: url('/assets/img/bridge_b_003_1920.jpg');
+  }
+}
+
+article.hero.hero-projects-detail,
+.cssgrid article.hero.hero-projects-detail,
+.no-cssgrid article.hero.hero-projects-detail {
+  &:after {
+    background-color: transparent;
+  }
+  .container {
+    padding: $margin-default/4;
+  }
+  .container, header, section {
+    background-color: transparent;
+    border-bottom: 0;
+    display: block;
+    text-align: left;
+    width: 100%;
+
+    &:after {
+      background-color: transparent;
+    }
+
+    header {
+      padding-top: 0;
+    }
+  }
+
+  img {
+    height: auto;
+    margin-bottom: $margin-default/2;
+    max-width: 720px;
+    width: 100%;
+
+    @include respond-to('xsmall') {
+      margin-top: $margin-default;
+    }
+  }
+
+  ul.skills-pills {
+    display: block;
+    font-family: $font-stack-body;
+    font-weight: $semibold;
+    line-height: 1;
+    list-style-type: none;
+    margin: 0;
+    margin-top: $margin-default/4;
+    @include respond-to('medium') {
+      margin-top: 0;
+    }
+
+    li {
+      background: $color-neutral-light;
+      border: 0;
+      border-radius: 25*$pxfont;
+      color: $color-neutral-dark;
+      display: inline-block;
+      font-size: 14*$pxfont;
+      margin-bottom: $margin-default/2;
+      margin-right: $margin-default/4;
+      padding: $margin-default/4 $margin-default/4;
+      text-shadow: none;
+    }
+  }
+}

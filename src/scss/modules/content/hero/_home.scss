@@ -1,0 +1,44 @@
+article.hero.hero-home {
+  background-image: url('/assets/img/bridge_b_001_414.jpg');
+  background-position: 30% 50%;
+  text-align: right;
+
+  .name,
+  .title {
+    display: block;
+  }
+
+  .title {
+    font-size: 0.75em;
+    font-weight: $light;
+    letter-spacing: 1.5px;
+  }
+
+  @include respond-to('tiny') {
+    h1 { font-size: 36*$pxfont;}
+  }
+  @include respond-to('xsmall') {
+    background-image: url('/assets/img/bridge_b_001_800.jpg');
+    h1 { font-size: 60*$pxfont;}
+  }
+
+  @include respond-to('medium') {
+    background-image: url('/assets/img/bridge_b_001_1024.jpg');
+
+    .title {
+      font-size: 0.6em;
+      font-weight: $bold;
+      letter-spacing: 0px;
+      text-shadow:
+        0 0 1px rgba(0, 0, 0, 0.9),
+        0 1px 2px rgba(0, 0, 0, 0.8),
+        0 2px 4px rgba(0, 0, 0, 0.7),
+        0 3px 6px rgba(0, 0, 0, 0.65),
+        0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  @include respond-to('large') {
+    background-image: url('/assets/img/bridge_b_001_1920.jpg');
+  }
+}

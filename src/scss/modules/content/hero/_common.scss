@@ -1,0 +1,159 @@
+article.hero {
+  background: $color-black top left/cover no-repeat;
+  color: $color-white;
+  left: 0;
+  position: relative;
+  text-shadow:
+    0 0 1px rgba(0, 0, 0, 0.9),
+    0 1px 2px rgba(0, 0, 0, 0.75),
+    0 2px 4px rgba(0, 0, 0, 0.67),
+    0 4px 8px rgba(0, 0, 0, 0.45),
+    0 6px 16px rgba(0, 0, 0, 0.2);
+  top: 0;
+  z-index: 0;
+
+  .container {
+    display: block;
+    max-width: 1024px;
+    width: 100%;
+  }
+
+  .container:after {
+    background-color: $color-accent3;
+    content: '';
+    opacity: 0.75;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  header {
+    border-bottom: 1px solid $color-accent1;
+    padding: $margin-default*4 0 $margin-default/8 0;
+
+    h1 {
+      margin: 0;
+    }
+  }
+
+  section {
+    padding-top: $margin-default/8;
+
+    p {
+      font-size: 14*$pxfont;
+    }
+  }
+
+  @include respond-to('small') {
+    p {
+      font-size: inherit;
+    }
+
+    .cta-wrapper {
+      margin-top: $margin-default/2;
+    }
+  }
+
+  @include respond-to('medium') {
+    .container:after {
+      background-color: transparent;
+    }
+
+    &:after {
+      background: $color-accent3-dark;
+      content: '';
+      opacity: 0.67;
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    header,
+    section {
+      border-bottom: 0;
+      position: relative;
+      text-align: left;
+      z-index: 2;
+    }
+
+    h1 {
+      border-bottom: 4px dotted $color-accent2;
+      margin-bottom: $margin-default/2;
+    }
+  }
+}
+
+// ************************************************************************
+// CSS GRID IMPLEMENTATION BELOW
+// ************************************************************************
+.cssgrid article.hero {
+  .container {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 1fr auto;
+  }
+
+  @include respond-to('medium') {
+    &:after {
+      background-color: transparent;
+    }
+
+    .container {
+      background: none;
+      grid-template-columns: 3fr 1fr;
+      grid-template-rows: 60vh;
+      padding: 0;
+      justify-items: stretch;
+
+      header,
+      section {
+        display: flex;
+        align-items: center;
+        padding: $margin-default/4;
+        position: relative;
+        top: 0;
+        left: 0;
+        text-align: left;
+        z-index: 2;
+
+
+        .hero-content {
+          display: block;
+          width: 100%;
+        }
+      }
+
+      header {
+        text-align: right;
+      }
+
+      section {
+        &:after {
+          background-color: $color-accent3;
+          content: '';
+          opacity: 0.75;
+          position: absolute;
+          z-index: -1;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+
+        }
+
+        .cta-wrapper {
+          display: block;
+          left: -25%;
+          padding-top: $margin-default/2;
+          position: absolute;
+        }
+      }
+    }
+  }
+}

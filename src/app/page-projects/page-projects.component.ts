@@ -14,7 +14,7 @@ import { throwError } from 'rxjs';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { Project } from '../models/project.class';
+import { Projects } from '../models/projects';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -34,18 +34,18 @@ export class PageProjectsComponent implements OnInit, OnDestroy {
 
   public error?: string;
 
-  public allProjects?: Project[];
-  public workProjects?: Project[];
-  public personalProjects?: Project[];
-  public selectedProject: Project;
+  public allProjects?: Projects[];
+  public workProjects?: Projects[];
+  public personalProjects?: Projects[];
+  public selectedProject: Projects;
 
-  onSelect(project: Project): void {
+  onSelect(project: Projects): void {
     // console.log("incoming project:",project);
     this.selectedProject = project;
   }
 
   constructor(private deliveryClient: DeliveryClient, private sanitizer: DomSanitizer) {
-    this.videoTag = this.getVideoTag();
+    // this.videoTag = this.getVideoTag();
   }
 
   ngOnInit(): void {
@@ -59,7 +59,7 @@ export class PageProjectsComponent implements OnInit, OnDestroy {
 
   loadData(): void {
     this.deliveryClient
-      .items<Project>()
+      .items<Projects>()
       .type(this.type)
       .containsFilter('elements.project_type', ['work_project'])
       .orderParameter('elements.sort_order', SortOrder.asc)
@@ -74,7 +74,7 @@ export class PageProjectsComponent implements OnInit, OnDestroy {
         error => this.handleCloudError(error)
       );
     this.deliveryClient
-      .items<Project>()
+      .items<Projects>()
       .type(this.type)
       .containsFilter('elements.project_type', ['personal_project'])
       .orderParameter('elements.sort_order', SortOrder.asc)
@@ -101,13 +101,13 @@ export class PageProjectsComponent implements OnInit, OnDestroy {
     }
   }
 
-  private getVideoTag() {
-    return this.sanitizer.bypassSecurityTrustHtml(`
-    <video muted autoplay loop playsinline>
-      <source src="assets/vid/opt/lightning_animation.mp4" type="video/mp4">
-      <source src="assets/vid/opt/lightning_animation.ogv" type="video/ogg">
-      <source src="assets/vid/opt/lightning_animation.webm" type="video/webm">
-    </video>
-    `);
-  }
+  // private getVideoTag() {
+  //   return this.sanitizer.bypassSecurityTrustHtml(`
+  //   <video muted autoplay loop playsinline>
+  //     <source src="assets/vid/opt/lightning_animation.mp4" type="video/mp4">
+  //     <source src="assets/vid/opt/lightning_animation.ogv" type="video/ogg">
+  //     <source src="assets/vid/opt/lightning_animation.webm" type="video/webm">
+  //   </video>
+  //   `);
+  // }
 }

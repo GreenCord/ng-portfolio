@@ -13,8 +13,8 @@ import { throwError } from 'rxjs';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { Homepage } from '../models/homepage.class';
-// import { Project } from '../models/project.class';
+import { Homepage } from '../models/homepage';
+import { Projects } from '../models/projects';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -23,7 +23,7 @@ import { Homepage } from '../models/homepage.class';
   styleUrls: ['./page-home.component.css']
 })
 export class PageHomeComponent implements OnInit, OnDestroy {
-  videoTag;
+  // videoTag;
 
   protected ngUnsubscribe: Subject<void> = new Subject<void>();
 
@@ -36,7 +36,7 @@ export class PageHomeComponent implements OnInit, OnDestroy {
   public homeTexts?: Homepage[];
 
   constructor(private deliveryClient: DeliveryClient, private sanitizer: DomSanitizer) {
-    this.videoTag = this.getVideoTag();
+    // this.videoTag = this.getVideoTag();
   }
 
   ngOnInit(): void {
@@ -59,6 +59,7 @@ export class PageHomeComponent implements OnInit, OnDestroy {
       .subscribe(
         response => {
           // console.log('incoming homepage items: ', response);
+          // console.log('incoming featuredProject[0]: ', response.items[0].featuredProject[0]);
           this.homeTexts = response.items;
         },
         error => this.handleCloudError(error)
@@ -75,14 +76,14 @@ export class PageHomeComponent implements OnInit, OnDestroy {
     }
   }
 
-  private getVideoTag() {
-    return this.sanitizer.bypassSecurityTrustHtml(`
-      <video muted autoplay loop playsinline>
-        <source src="./assets/vid/opt/scifitunnel04.mp4" type="video/mp4">
-        <source src="./assets/vid/opt/scifitunnel04.ogv" type="video/ogg">
-        <source src="./assets/vid/opt/scifitunnel04.webm" type="video/webm">
-      </video>
-    `);
-  }
+  // private getVideoTag() {
+  //   return this.sanitizer.bypassSecurityTrustHtml(`
+  //     <video muted autoplay loop playsinline>
+  //       <source src="./assets/vid/opt/scifitunnel04.mp4" type="video/mp4">
+  //       <source src="./assets/vid/opt/scifitunnel04.ogv" type="video/ogg">
+  //       <source src="./assets/vid/opt/scifitunnel04.webm" type="video/webm">
+  //     </video>
+  //   `);
+  // }
 
 }

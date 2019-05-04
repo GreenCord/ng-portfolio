@@ -1,14 +1,5 @@
 main {
   overflow: hidden;
-  
-  article {
-    padding: $margin-default/2;
-
-    section {
-      margin: 0 auto;
-      max-width: $containermax;
-    }
-  }
 
   ul {
     margin-left: $margin-default/2;
@@ -16,5 +7,6 @@ main {
 
   .container {
     margin: 0 auto;
+    padding: $margin-default/2;
   }
 }

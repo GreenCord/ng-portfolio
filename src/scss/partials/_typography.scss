@@ -1,28 +1,33 @@
 @import "variables";
 
 @import "mixins";
+
 // Defaults
-h1 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: $color-white;
   font-family: $font-stack-display;
   font-weight: $black;
   margin-bottom: $margin-default/2;
   text-transform: none;
-}
 
-h2, h3, h4, h5, h6 {
-  @extend h1;
+  &+p {
+    margin-top: -1 * ($margin-default / 4);
+  }
 }
 
 h1 {
   font-size: 24 * $pxfont;
   line-height: 0.94444;
 
-  @include respond-to('tiny') {
-    font-size: 36 * $pxfont;
-  }
+
+
   @include respond-to('xsmall') {
-    font-size: 60 * $pxfont;
+    font-size: 36 * $pxfont;
   }
 }
 
@@ -30,11 +35,10 @@ h2 {
   font-size: 22 * $pxfont;
   line-height: 1.10000;
 
-  @include respond-to('tiny') {
-    font-size: 28 * $pxfont;
-  }
+
+
   @include respond-to('xsmall') {
-    font-size: 48 * $pxfont;
+    font-size: 32 * $pxfont;
   }
 }
 
@@ -42,25 +46,21 @@ h3 {
   font-size: 20 * $pxfont;
   line-height: 1.10000;
 
-  @include respond-to('tiny') {
-    font-size: 24 * $pxfont;
-  }
+
   @include respond-to('xsmall') {
-    font-size: 36 * $pxfont;
+    font-size: 24 * $pxfont;
   }
 }
 
 h4 {
   font-size: 18 * $pxfont;
   line-height: 1.1;
-  @include respond-to('xsmall') {
-    font-size: 24 * $pxfont;
-  }
 }
 
 h5 {
   font-size: 16 * $pxfont;
   line-height: 1.1;
+
   @include respond-to('xsmall') {
     font-size: 18 * $pxfont;
   }
@@ -89,10 +89,10 @@ li {
   letter-spacing: normal;
 }
 
-p + p,
-p + ul,
-p + ol,
-li + li {
+p+p,
+p+ul,
+p+ol,
+li+li {
   margin-top: -1 * ($margin-default / 4);
 }
 
@@ -136,6 +136,6 @@ hr {
   margin: $margin-default 0 ($margin-default * 2) 0;
 }
 
-p + hr {
+p+hr {
   margin-top: $margin-default * 2;
 }

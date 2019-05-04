@@ -1,28 +1,34 @@
-.content a.btn,
-a.btn {
-  box-shadow: 0 (10*$pxfont) (15*$pxfont) rgba(0,0,0,0.67);
+a.btn, .cta-wrapper a.btn {
+  border-radius: 8px;
+  box-shadow: 0 (10*$pxfont) (15*$pxfont) rgba(0, 0, 0, 0.67);
+  color: $color-white;
   cursor: pointer;
   display: inline-block;
-  padding: $margin-default/4 $margin-default;
+  font-weight: $semibold;
+  line-height: 1;
+  padding: $margin-default/3 $margin-default/2;
   text-align: center;
   text-decoration: none;
+  text-shadow: none;
+  text-transform: uppercase;
   width: auto;
-  @include prefix('transition',all 0.2s ease-in-out);
+  @include prefix('transition', all 0.2s ease-in-out);
 
   &.btn-solid {
-    border: 2px solid $color-accent1;
-    background-color: $color-accent1-darker;
+    border: 1px solid $color-accent1;
+    background-color: $color-accent1-dark;
     color: $color-white;
   }
 
-  &.btn-ghost {
-    border: 2px solid $color-accent1;
-    background-color: transparent;
-    color: $color-white;
-  }
-
-  &:hover {
-    box-shadow: 0 (3*$pxfont) (5*$pxfont) rgba(0,0,0,0.90);
+  &:hover, &:active {
+    box-shadow: 0 (3*$pxfont) (5*$pxfont) rgba(0, 0, 0, 0.90);
     background-color: $color-accent1;
+    color: $color-white;
+    text-shadow:
+      0 0 1*$pxfont rgba(0, 0, 0, 0.9),
+      0 1*$pxfont 2*$pxfont rgba(0, 0, 0, 0.8);
+  }
+  &:visited {
+    color: $color-white;
   }
 }

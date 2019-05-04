@@ -12,7 +12,7 @@ article.content-grid {
     }
   }
   .grid-item {
-    display: inline-block; 
+    display: inline-block;
     margin: $margin-default 0;
     vertical-align: top;
     width: 100%;
@@ -38,8 +38,8 @@ article.content-grid {
       }
     }
     @include respond-to('xsmall') {
-      h3 { 
-        font-size: 24*$pxfont;
+      h3 {
+        font-size: 20*$pxfont;
       }
     }
     @include respond-to('medium') {

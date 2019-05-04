@@ -1,0 +1,147 @@
+@import "../partials/variables";
+@import "../partials/mixins";
+.skip-to-content {
+  background: $color-white;
+  height: 1px;
+  left: -10000px;
+  overflow: hidden;
+  padding: 0.875rem;
+  position: absolute;
+  text-align: left;
+  top: auto;
+  width: 1px;
+}
+
+.skip-to-content:focus {
+  display: block;
+  height: auto;
+  left: 0;
+  position: relative;
+  top: 0;
+  width: auto;
+}
+
+.site-header {
+  background: $color-black;
+  display: block;
+  font-family: $font-stack-display;
+  font-size: 0;
+  font-weight: $black;
+  left: 0;
+  position: relative;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+
+  @include respond-to('xsmall') {
+    // position: fixed;
+  }
+}
+
+.site-header-container {
+  margin: 0 auto;
+  max-width: 1024px;
+  text-align: left;
+}
+
+.site-header section {
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  background: $color-accent1;
+  color: $color-neutral-dark;
+  display: block;
+  font-size: 28 * $pxfont;
+  line-height: 1;
+  padding: $margin-default/4;
+  text-align: center;
+  width: 100%;
+  z-index: 100;
+  .primary {
+    border-top: 1px dotted $color-neutral-dark;
+    padding-top: 5 * $pxfont;
+  }
+  .secondary {
+    border-bottom: 1px dotted $color-neutral-dark;
+    font-family: $font-stack-display;
+    font-size: 16 * $pxfont;
+    font-weight: $medium;
+    letter-spacing: $pxfont * 4;
+    padding-bottom: 5 * $pxfont;
+    text-transform: uppercase;
+  }
+  @include respond-to('xsmall') {
+    display: inline-block;
+    font-size: 18 * $pxfont;
+    padding: $margin-default/4 $margin-default/2;
+    margin-bottom: -$margin-default;
+    vertical-align: top;
+    width: percentage($number: 1/3);
+    .secondary {
+      font-size: 14 * $pxfont;
+      letter-spacing: normal;
+    }
+  }
+}
+
+nav {
+  @include respond-to('xsmall') {
+    display: inline-block;
+    margin-left: $margin-default;
+    width: auto;
+  }
+  ul {
+    display: table;
+    list-style-type: none;
+    margin: 0;
+    width: 100%;
+    li {
+      display: table-cell;
+      cursor: pointer;
+      position: relative;
+      text-align: center;
+      @include prefix('transition', background-color .2s ease-in-out);
+      vertical-align: middle;
+      width: $percent100 / 3;
+      &:hover,
+      &:active {
+        background-color: transparent;
+      }
+      &:hover a {
+        color: $color-accent1-light;
+      }
+      &:hover a:after {
+        //@include prefix('transform', translateY(0) scale(1));
+        @include prefix('transform', scale(1));
+      }
+      a {
+        color: $color-accent1;
+        display: block;
+        font-family: $font-stack-body;
+        font-size: 16 * $pxfont;
+        font-weight: $regular;
+        height: 100%;
+        padding: $margin-default/4;
+        text-decoration: none;
+        width: 100%;
+        &:after {
+          background: $color-accent1-light;
+          bottom: 0;
+          content: '';
+          display: block;
+          height: 1 * $pxfont;
+          left: 0;
+          margin-left: 0;
+          margin-top: 10px;
+          position: absolute;
+          right: 0;
+          //@include prefix('transform', translateY(-100%) scale(0));
+          @include prefix('transform', scale(0));
+          @include prefix('transition', transform .2s ease-in-out);
+          width: 100%;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+.clearfix:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.break-xt {
+  display: block;
+  @include respond-to('xtiny') {
+    display: inline;
+  }
+}

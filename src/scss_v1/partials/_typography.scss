@@ -1,0 +1,141 @@
+@import "variables";
+
+@import "mixins";
+// Defaults
+h1 {
+  color: $color-white;
+  font-family: $font-stack-display;
+  font-weight: $black;
+  margin-bottom: $margin-default/2;
+  text-transform: none;
+}
+
+h2, h3, h4, h5, h6 {
+  @extend h1;
+}
+
+h1 {
+  font-size: 24 * $pxfont;
+  line-height: 0.94444;
+
+  @include respond-to('tiny') {
+    font-size: 36 * $pxfont;
+  }
+  @include respond-to('xsmall') {
+    font-size: 60 * $pxfont;
+  }
+}
+
+h2 {
+  font-size: 22 * $pxfont;
+  line-height: 1.10000;
+
+  @include respond-to('tiny') {
+    font-size: 28 * $pxfont;
+  }
+  @include respond-to('xsmall') {
+    font-size: 48 * $pxfont;
+  }
+}
+
+h3 {
+  font-size: 20 * $pxfont;
+  line-height: 1.10000;
+
+  @include respond-to('tiny') {
+    font-size: 24 * $pxfont;
+  }
+  @include respond-to('xsmall') {
+    font-size: 36 * $pxfont;
+  }
+}
+
+h4 {
+  font-size: 18 * $pxfont;
+  line-height: 1.1;
+  @include respond-to('xsmall') {
+    font-size: 24 * $pxfont;
+  }
+}
+
+h5 {
+  font-size: 16 * $pxfont;
+  line-height: 1.1;
+  @include respond-to('xsmall') {
+    font-size: 18 * $pxfont;
+  }
+}
+
+h6 {
+  font-size: 16 * $pxfont;
+  line-height: 1.1;
+}
+
+p,
+code,
+blockquote,
+ul,
+ol,
+li {
+  color: inherit;
+  margin: auto auto $margin-default/2;
+}
+
+p,
+ul,
+ol,
+li {
+  font-size: 1.0000rem;
+  letter-spacing: normal;
+}
+
+p + p,
+p + ul,
+p + ol,
+li + li {
+  margin-top: -1 * ($margin-default / 4);
+}
+
+code,
+pre {
+  line-height: 1;
+  font-family: $font-stack-mono;
+  font-size: 1rem;
+}
+
+blockquote {
+  font-style: italic;
+  line-height: 1.714285714285714;
+}
+
+blockquote:before {
+  content: "\201C";
+  display: inline-block;
+  padding-right: 0.4rem;
+}
+
+strong {
+  font-weight: $black;
+}
+
+em {
+  font-style: italic;
+}
+
+sup {
+  font-size: 0.75rem;
+  position: relative;
+  top: -2px;
+  vertical-align: top;
+}
+
+hr {
+  background-color: $color-neutral;
+  border: 0;
+  height: 1px;
+  margin: $margin-default 0 ($margin-default * 2) 0;
+}
+
+p + hr {
+  margin-top: $margin-default * 2;
+}

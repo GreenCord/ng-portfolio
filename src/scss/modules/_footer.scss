@@ -1,8 +1,9 @@
 @import "../partials/variables";
 
 .site-footer {
-  background: $color-neutral;
-  color: $color-white;
+  background: $color-neutral-dark;
+  border-top: 1px solid $color-accent1;
+  color: $color-neutral-light;
   padding: ($margin-default/2) 0;
   text-align: center;
 

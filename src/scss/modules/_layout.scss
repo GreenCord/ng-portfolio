@@ -2,19 +2,16 @@
 
 html,
 body {
-  background: $color-neutral-dark;
-  color: $color-neutral-light;
   font: 100%/1.5 $font-stack-body;
   height: 100%;
-  margin: 0;
-  padding: 0;
   scroll-behavior: smooth;
 }
 
-.flexme {
+body {
+  background: $color-neutral-dark;
+  color: $color-neutral-light;
   display: flex;
   flex-direction: column;
-  height: 100%;
 }
 
 .main-wrapper {
